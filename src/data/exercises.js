@@ -100,7 +100,7 @@ export const exercises = [
     tags: ['warm-up', 'ankles'],
   }),
   ex('cat-cow', 'Cat–cow', 'catCow', {
-    category: 'Warm-up', focus: ['Lower back', 'Mobility'], level: 1, impact: 'low',
+    category: 'Warm-up', focus: ['Lower back', 'Core'], level: 1, impact: 'low',
     reps: '8–10 breaths', work: 40, rest: 10, sets: 2,
     setup: 'Come onto all fours with hands under shoulders and knees under hips.',
     move: 'Inhale and let the belly drop as the chest lifts. Exhale and round the back, tucking the chin.',
@@ -142,7 +142,7 @@ export const exercises = [
 
   // ── Mobility & flexibility ───────────────────────────────────────────────
   ex('childs-pose', "Child's pose", 'childsPose', {
-    category: 'Mobility', focus: ['Lower back', 'Hips'], level: 1, impact: 'low',
+    category: 'Mobility', focus: ['Lower back', 'Hip flexors'], level: 1, impact: 'low',
     reps: '45 sec', work: 45, rest: 10, sets: 1, position: 'floor',
     setup: 'Kneel with your big toes together and knees wide. Sit your hips back toward your heels.',
     move: 'Walk your hands forward and let your chest sink toward the floor. Rest your forehead on a cushion if you like.',
@@ -242,7 +242,7 @@ export const exercises = [
     tags: ['mobility', 'desk', 'neck'],
   }),
   ex('butterfly', 'Butterfly stretch', 'butterfly', {
-    category: 'Mobility', focus: ['Adductors', 'Hips'], level: 1, impact: 'low',
+    category: 'Mobility', focus: ['Adductors', 'Hip flexors'], level: 1, impact: 'low',
     reps: '45 sec', work: 45, rest: 10, sets: 1, position: 'floor',
     setup: 'Sit with the soles of your feet together and knees out.',
     move: 'Hinge forward from the hips, keeping the spine long. Let the knees relax toward the floor.',
@@ -373,7 +373,7 @@ export const exercises = [
     tags: ['no equipment', 'legs', 'burn'],
   }),
   ex('deep-squat-hold', 'Deep squat hold', 'deepSquatHold', {
-    focus: ['Hips', 'Quads', 'Adductors'], level: 2, category: 'Mobility',
+    focus: ['Quads', 'Adductors', 'Hip flexors'], level: 2, category: 'Mobility',
     reps: '30–45 sec', work: 40, sets: 2,
     setup: 'Stand with your feet slightly wider than your hips.',
     move: 'Lower into the deepest squat you can hold with your heels down. Bring your hands to your chest and breathe.',
@@ -641,7 +641,7 @@ export const exercises = [
     tags: ['balance', 'hamstrings'],
   }),
   ex('single-leg-balance', 'Single-leg balance', 'singleLegBalance', {
-    focus: ['Balance', 'Hips'], level: 1, category: 'Balance',
+    focus: ['Balance', 'Glutes'], level: 1, category: 'Balance',
     reps: '30 sec each side', work: 40, unilateral: true,
     setup: 'Stand tall near a wall.',
     move: 'Lift one foot off the floor and balance on the other leg, arms out to the sides. Hold, then switch.',
@@ -651,7 +651,7 @@ export const exercises = [
     tags: ['balance', 'quiet', 'apartment'],
   }),
   ex('tree-pose', 'Tree pose', 'singleLegBalance', {
-    anim: { variant: 'tree' }, focus: ['Balance', 'Hips'], level: 1, category: 'Balance',
+    anim: { variant: 'tree' }, focus: ['Balance', 'Adductors'], level: 1, category: 'Balance',
     reps: '30 sec each side', work: 40, unilateral: true,
     setup: 'Stand tall with your hands together at your chest.',
     move: 'Place one foot against the inside of the other calf or thigh. Hold, then switch sides.',
@@ -1278,7 +1278,7 @@ export const exercises = [
     tags: ['cardio', 'full body', 'advanced'],
   }),
   ex('skater', 'Skater', 'skater', {
-    category: 'Cardio', focus: ['Legs', 'Cardio'], level: 2, impact: 'medium',
+    category: 'Cardio', focus: ['Quads', 'Glutes', 'Cardio'], level: 2, impact: 'medium',
     quiet: false, reps: '20–40 sec', work: 30, space: 'medium',
     setup: 'Stand on one leg with a soft knee.',
     move: 'Leap sideways to the other foot, swinging the arms, and land softly. Alternate sides.',

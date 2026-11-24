@@ -39,6 +39,7 @@ Open `http://localhost:5173`.
 ```bash
 npm run build     # production build in dist/
 npm run preview   # serve the production build locally
+npm run check     # validate the exercise, program and animation data
 npm run lint      # oxlint
 ```
 
@@ -48,7 +49,7 @@ The service worker is registered only in a production build, so use `npm run pre
 
 - **Library** — search by name, body part, equipment, level, impact, space or quietness. Filters combine.
 - **Exercise detail** — setup, movement, breathing, cues, common mistakes, easier and harder variations, and the animated figure.
-- **Programs** — sequential plans with a session list and total time. Each session opens in the player.
+- **Programs** — structured plans with a session list and total time. Each session opens in the player.
 - **Quick sessions** — short plans of ten minutes or less on the home page, for mornings, desk breaks, quiet floors and travel.
 - **Player** — the timer starts automatically. Space pauses, `→` skips a set, `←` goes back. `+10s` adds time. Ending early asks first and does not log a partial session.
 - **Progress** — finished sessions, minutes, streak, this week's chart and a removable history. Saved exercises live here too.
@@ -107,7 +108,7 @@ ex('step-up', 'Step-up', 'stepUp', {
 })
 ```
 
-`pattern` is the camelCase key of an animation in `src/rig/patterns.js` (the example uses `stepUp`). If the pattern does not exist yet, add it there and include it in the `patterns` object. Every exercise also needs setup, move, breathe, cues, avoid, easier and harder text — the data layer is meant to be useful, not just a list of names.
+`pattern` is the camelCase key of an animation in `src/rig/patterns.js` (the example uses `stepUp`). If the pattern does not exist yet, add it there and include it in the `patterns` object. Every exercise needs setup, move, breathe, cues, easier and harder text. `avoid` is optional and is shown on the detail page when present.
 
 Programs live in `src/data/programs.js` and reference exercise IDs:
 
@@ -118,7 +119,7 @@ s('basics', 'The basics', 'Full body', [
 ])
 ```
 
-Run `npm run lint` and `npm run build` before opening a pull request.
+Run `npm run check` to validate exercise IDs, animation patterns, program references and required text, then `npm run lint` and `npm run build` before opening a pull request.
 
 ## Privacy
 
