@@ -57,7 +57,9 @@ a { color: inherit; }
 
 h1, h2, h3, h4, p, figure { margin: 0; }
 
-.exfig svg { display: block; width: 100%; height: auto; }
+.exfig svg,
+.exfig img { display: block; width: 100%; height: auto; }
+.exfig img { user-select: none; }
 
 /* dev gallery */
 .gallery {

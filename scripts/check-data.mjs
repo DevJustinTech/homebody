@@ -11,6 +11,8 @@ import {
 import { programs, sessionExercises } from '../src/data/programs.js'
 import { quickSessions } from '../src/data/quick.js'
 import { patterns } from '../src/rig/patterns.js'
+import { CLIP_PATTERNS } from '../src/rig/clips.js'
+import { access } from 'node:fs/promises'
 
 const errors = []
 const fail = message => errors.push(message)
@@ -96,6 +98,18 @@ for (const session of quickSessions) {
 }
 
 const usedPatterns = new Set(exercises.map(exercise => exercise.anim?.pattern || exercise.pattern))
+
+// Every advertised 3D clip must exist in both themes, with a still.
+for (const id of CLIP_PATTERNS) {
+  if (!patterns[id]) fail(`clip "${id}": unknown pattern`)
+  for (const theme of ['light', 'dark']) {
+    for (const name of [`${id}-${theme}.webp`, `${id}-still-${theme}.webp`]) {
+      await access(new URL(`../public/anim3d/clips/${name}`, import.meta.url)).catch(() =>
+        fail(`clip "${id}": missing public/anim3d/clips/${name}`),
+      )
+    }
+  }
+}
 
 console.log('homebody data check')
 console.log(

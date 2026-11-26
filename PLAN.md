@@ -23,7 +23,9 @@ A complete, free home-training library for people who do not have a gym. The ani
 ### 0.2 — deepen the library
 
 - [ ] Grow the library toward 200 exercises, prioritising gaps rather than variations of what is already covered.
-- [ ] Add common-mistake (`avoid`) notes to every exercise where one is genuinely useful.
+- [x] Add common-mistake (`avoid`) notes to every exercise where one is genuinely useful.
+- [x] Bake 3D demonstrations for the four base movements the CC0 pack covers (push-up, jumping jacks, jog, shadow boxing), with the render pipeline in `tools/anim3d/`.
+- [ ] Broaden 3D coverage past those four with phone mocap or a licensed pack; the SVG rig stays the fallback for every other pattern.
 - [ ] Add a few seated, pregnancy-friendly and low-mobility options with clear caveats.
 - [ ] Review every timing and cue with a second pass for safety and clarity.
 - [ ] Add a simple body-map filter (front/back, tap a region) on top of the existing focus filter.
@@ -50,10 +52,11 @@ A complete, free home-training library for people who do not have a gym. The ani
 - The service worker uses a single cache name; bump it when changing the caching strategy.
 - `npm run lint` still reports dev-only fast-refresh warnings and one intentional timer `setState` warning. Build and data checks pass.
 - There is no automated browser test suite in the repository yet; the player and PWA have been checked with Playwright manually.
+- The 3D lane covers 4 of 125 exercises. Animated WebP keeps transparency but costs 180–470 KB per loop per theme; the format needs revisiting before coverage grows.
 
 ## Guardrails
 
-- Original animations only. Do not copy openGym media or any other licensed exercise footage.
+- Original animations only, or CC0 motion rendered by this project's own pipeline. Do not copy openGym media or any other licensed exercise footage.
 - No backend, no analytics, no accounts and no third-party runtime requests.
 - Every exercise needs setup, movement, breathing, cues, easier and harder text. `avoid` is optional but encouraged.
 - Keep the app fully usable offline and on a small phone.

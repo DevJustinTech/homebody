@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# anim3d render output
+tools/anim3d/out/
+tools/anim3d/frames/
+
+# anim3d build cache
+.cache/

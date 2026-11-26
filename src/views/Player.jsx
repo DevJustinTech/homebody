@@ -12,7 +12,9 @@ import {
   SpeakerSlash,
   X,
 } from '@phosphor-icons/react'
+import ClipFigure from '../rig/ClipFigure.jsx'
 import ExerciseFigure from '../rig/ExerciseFigure.jsx'
+import { clipFor } from '../rig/clips.js'
 import { exerciseById, EQUIPMENT } from '../data/exercises.js'
 import { programById, sessionExercises } from '../data/programs.js'
 import { quickById } from '../data/quick.js'
@@ -345,7 +347,11 @@ export default function Player({ mode, param, sub }) {
             </span>
             <span className="player-set">Set {set} / {current.sets}</span>
           </div>
-          <ExerciseFigure exercise={preview} playing={!paused} mat={false} />
+          {clipFor(preview) ? (
+            <ClipFigure exercise={preview} playing={!paused} />
+          ) : (
+            <ExerciseFigure exercise={preview} playing={!paused} mat={false} />
+          )}
           <div className="player-figure-foot">
             <span>{preview.focus.slice(0, 2).join(' · ')}</span>
             <span>{preview.equipment.length ? preview.equipment.map(key => EQUIPMENT[key]).join(', ') : 'No equipment'}</span>

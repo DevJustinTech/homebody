@@ -4,12 +4,12 @@
 
 A free, local-first training library for the room you already have. No gym, no equipment shopping, no account, no audience. Just a floor, a wall, a chair, and a plan.
 
-homebody is an original project: every exercise, program and animation here was written for this app. It is not a fork of openGym, does not use openGym's media, and is not affiliated with it. openGym was the inspiration — proof that a generous, well-organised exercise catalogue can be a public good. homebody takes that idea and points it at the smallest possible gym: home.
+homebody is an original project: every exercise and program here was written for this app, and every animation is either hand-drawn on its SVG rig or rendered from CC0 motion. It is not a fork of openGym, does not use openGym's media, and is not affiliated with it. openGym was the inspiration — proof that a generous, well-organised exercise catalogue can be a public good. homebody takes that idea and points it at the smallest possible gym: home.
 
 ## What is inside
 
 - **125 exercises** across warm-up, strength, core, cardio, mobility and balance.
-- **72 hand-authored movement animations** drawn with a small SVG body rig, not video or copied media.
+- **72 hand-authored movement animations** drawn with a small SVG body rig, plus **baked 3D demonstrations** for four base movements (CC0 motion, rendered at build time — no copied media).
 - **11 programs / 42 guided sessions**, from a four-session First Steps introduction to focused upper-body, lower-body, core, mobility, desk, quiet-apartment and travel plans.
 - **6 quick sessions** of ten minutes or less for days when a program is too much to think about.
 - **A guided player** with work and rest timers, sets, pause, skip, +10 seconds, keyboard controls and optional sound cues.
@@ -41,6 +41,7 @@ npm run build     # production build in dist/
 npm run preview   # serve the production build locally
 npm run check     # validate the exercise, program and animation data
 npm run lint      # oxlint
+npm run anim3d    # rebuild the 3D clips (needs ffmpeg and Brave)
 ```
 
 The service worker is registered only in a production build, so use `npm run preview` (or a static host) to test offline behaviour and installation. Serve the build from the site root.
@@ -69,6 +70,8 @@ src/
     patterns.js      72 named movement patterns and their keyframes
     Figure.jsx       SVG renderer (body, props, ground)
     ExerciseFigure.jsx  animation loop, in-view handling, reduced-motion freeze
+    ClipFigure.jsx    animated-WebP renderer for the four baked 3D clips
+    clips.js          which exercises have a 3D clip
   lib/
     router.jsx       tiny hash router
     store.js         localStorage state, logs, stats, export/clear
@@ -79,6 +82,9 @@ src/
   dev/Gallery.jsx    animation study, not part of the production routes
 public/
   manifest.webmanifest, sw.js, icons
+  anim3d/clips/      baked 3D loops and stills, one per theme
+tools/
+  anim3d/            render pipeline for those clips (see its README)
 ```
 
 ## Adding an exercise
@@ -137,6 +143,7 @@ Everything is stored under one `localStorage` key: `homebody.v1`. It contains se
 - Inspired by [openGym](https://github.com/DuarteSantos8/openGym). No openGym code, catalogue data or exercise media is used here. openGym's exercise media is licensed only for openGym and is deliberately not copied into this project.
 - Typefaces: [Fraunces](https://github.com/undercasetype/Fraunces) and [Manrope](https://github.com/sharanda/manrope), both under the SIL Open Font License.
 - Icons: [Phosphor Icons](https://phosphoricons.com), MIT.
+- 3D motion: [Mesh2Motion](https://github.com/Mesh2Motion/mesh2motion-app) human animation pack (a retarget of the Quaternius Universal Animation Library), CC0-1.0. Rendered with [three.js](https://threejs.org), MIT, at build time; see `tools/anim3d/`.
 - Built with [React](https://react.dev) and [Vite](https://vite.dev).
 
 ## License

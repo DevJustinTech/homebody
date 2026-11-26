@@ -1,0 +1,42 @@
+{
+  "glb": "tools/anim3d/assets/human-addon-animations.glb",
+  "fps": 30,
+  "clips": [
+    {
+      "id": "pushup",
+      "action": "Pushup",
+      "yaw": 90,
+      "pitch": 5,
+      "margin": 1.26,
+      "shadow": false,
+      "still": 0.5
+    },
+    {
+      "id": "jumpingJack",
+      "action": "Jumping Jacks",
+      "yaw": 0,
+      "pitch": 6,
+      "margin": 1.2,
+      "shadow": true,
+      "still": 0.0
+    },
+    {
+      "id": "jog",
+      "action": "Run_Anime",
+      "yaw": 90,
+      "pitch": 5,
+      "margin": 1.22,
+      "shadow": false,
+      "still": 0.42
+    },
+    {
+      "id": "shadowBox",
+      "action": "Fighting Left Jab",
+      "yaw": 55,
+      "pitch": 8,
+      "margin": 1.24,
+      "shadow": true,
+      "still": 0.5
+    }
+  ]
+}

@@ -5,11 +5,25 @@
 const CACHE = 'homebody-v1'
 const SHELL = ['./', './index.html', './favicon.svg', './manifest.webmanifest', './icon-192.png', './icon-512.png']
 
+// The baked 3D demonstrations are enhancement assets: cache what is there,
+// but never fail the install because one clip is missing.
+const CLIPS = [
+  'pushup', 'jumpingJack', 'jog', 'shadowBox',
+].flatMap(id => ['light', 'dark'].flatMap(theme => [
+  `./anim3d/clips/${id}-${theme}.webp`,
+  `./anim3d/clips/${id}-still-${theme}.webp`,
+]))
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches
       .open(CACHE)
-      .then(cache => cache.addAll(SHELL))
+      .then(cache =>
+        Promise.all([
+          cache.addAll(SHELL),
+          Promise.allSettled(CLIPS.map(path => cache.add(path))),
+        ]),
+      )
       .then(() => self.skipWaiting()),
   )
 })

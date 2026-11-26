@@ -8,7 +8,9 @@ import {
   SpeakerHigh,
   SpeakerSlash,
 } from '@phosphor-icons/react'
+import ClipFigure from '../rig/ClipFigure.jsx'
 import ExerciseFigure from '../rig/ExerciseFigure.jsx'
+import { clipFor } from '../rig/clips.js'
 import ExerciseCard from '../components/ExerciseCard.jsx'
 import { EQUIPMENT, LEVELS, exerciseById, exercises } from '../data/exercises.js'
 import { Link } from '../lib/router.jsx'
@@ -58,7 +60,11 @@ export default function ExerciseDetail({ id }) {
               </button>
             </div>
           </div>
-          <ExerciseFigure exercise={exercise} playing={playing} mat={false} />
+          {clipFor(exercise) ? (
+            <ClipFigure exercise={exercise} playing={playing} />
+          ) : (
+            <ExerciseFigure exercise={exercise} playing={playing} mat={false} />
+          )}
           <div className="figure-caption">
             <span className="figure-caption-text">
               {playing ? 'Playing on a loop' : 'Paused on the clearest frame'}
